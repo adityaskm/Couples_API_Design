@@ -32,7 +32,7 @@
     }
   },
   "additionalProperties": false,
-  "description": "This is the Base Model of  a Book",
+  "description": "This is the Base Model of a couplelackage",
   "properties": {
     "id": {
       "type": "string",
