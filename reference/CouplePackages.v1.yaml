@@ -1,11 +1,17 @@
 openapi: 3.0.0
 info:
-  title: ''
-  version: '1.0'
-  description: ''
+  title: Couples Cloud API
+  version: '2.0'
+  description: Redesign of the endpoints for handling and serving requests from the mobile Apps / SDK.
 servers:
   - url: 'http://localhost:3000'
     description: Localhost
+  - url: 'https://dev-cloud.actionlist.de/dev/couplecloud'
+    description: Development
+  - url: 'https://test.actionlist.de/test/couplecloud'
+    description: Staging
+  - url: 'https://cloud.actionlist.de/prod/couplecloud'
+    description: Production
 paths:
   '/v1.0/collections/mobile?$bundleWith={bundleWith}&$keys={keys}$locale={locale}':
     get:
@@ -115,22 +121,47 @@ paths:
                           uniqueItems: true
                           items:
                             type: string
+              examples:
+                example-1:
+                  value:
+                    pages:
+                      - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                        title: string
+                        pageIconUrl: 'http://example.com'
+                        contents:
+                          - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                            title: string
+                            description: string
+                            contentType: string
+                            iconUrl: 'http://example.com'
+                            isBookmarkable: true
+                            isDownloadable: true
+                            isShareable: true
+                            mediaUrl: 'http://example.com'
+                        contentTypeList:
+                          - string
       operationId: get-Couples-By-Couples-Package-Key
+      parameters:
+        - schema:
+            type: string
+          in: query
+      description: ''
     parameters:
       - schema:
           type: string
         name: couple-package-key
         in: path
-        required: true
+        description: key of a certain couple package. If given the response will only return data for the object identified by the key.
       - schema:
           type: string
         name: locale
         in: path
-        required: true
+        description: A locale key to identify the language in which the content should be returned. If not given or no matching content can be found the data for the couple packages default language will be served.
       - schema:
-          type: string
+          type: boolean
+          default: 'false'
         name: includeContent
         in: path
-        required: true
+        description: 'If given, indicates if the result should include subcontent for the couplepackages it returns, such as couplepages and couplecontent. This function is costly and should only be used where all such data is required.'
 components:
   schemas: {}
