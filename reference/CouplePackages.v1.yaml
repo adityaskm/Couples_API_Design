@@ -1,0 +1,26 @@
+openapi: 3.0.0
+info:
+  title: ''
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'http://localhost:3000'
+    description: Localhost
+paths:
+  /couple-packages:
+    get:
+      summary: CouplePackages
+      tags: []
+      operationId: get-couple-packages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              example-1:
+                value: {}
+      description: API to get the list of all Couple Packages based on the Couples-Package.v1.json model with the page list as empty.
+components:
+  schemas: {}
