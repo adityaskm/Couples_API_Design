@@ -1,5 +1,0 @@
-title: couplepage
-type: object
-properties:
-  id:
-    type: string
