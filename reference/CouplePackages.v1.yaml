@@ -62,7 +62,7 @@ paths:
         name: locale
         in: path
         required: true
-  '/couples/{couple-package-key}?$locale={locale}&$includeContent={includeContent}':
+  '/couplepackages/{couple-package-key}?$locale=&$includeContent=':
     get:
       summary: Couples by Couples Package Key
       tags: []
@@ -140,11 +140,25 @@ paths:
                             mediaUrl: 'http://example.com'
                         contentTypeList:
                           - string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
       operationId: get-Couples-By-Couples-Package-Key
       parameters:
         - schema:
             type: string
           in: query
+          description: A locale key to identify the language in which the content should be returned. If not given or no matching content can be found the data for the couple packages default language will be served.
+          name: locale
+          allowEmptyValue: true
+        - schema:
+            type: boolean
+            default: 'false'
+          in: query
+          name: includeContent
+          description: 'If given, indicates if the result should include subcontent for the couplepackages it returns, such as couplepages and couplecontent. This function is costly and should only be used where all such data is required.'
+          allowEmptyValue: true
       description: ''
     parameters:
       - schema:
@@ -152,16 +166,5 @@ paths:
         name: couple-package-key
         in: path
         description: key of a certain couple package. If given the response will only return data for the object identified by the key.
-      - schema:
-          type: string
-        name: locale
-        in: path
-        description: A locale key to identify the language in which the content should be returned. If not given or no matching content can be found the data for the couple packages default language will be served.
-      - schema:
-          type: boolean
-          default: 'false'
-        name: includeContent
-        in: path
-        description: 'If given, indicates if the result should include subcontent for the couplepackages it returns, such as couplepages and couplecontent. This function is costly and should only be used where all such data is required.'
 components:
   schemas: {}
