@@ -7,7 +7,7 @@ servers:
   - url: 'http://localhost:3000'
     description: Localhost
 paths:
-  /couple-packages:
+  /v1.0/collections/mobile?$bundleWith=couplepackages&$keys=caa9b2a5-bca2-4f66-af27-58967083ef30:
     get:
       summary: CouplePackages
       tags: []
@@ -22,5 +22,99 @@ paths:
               example-1:
                 value: {}
       description: API to get the list of all Couple Packages based on the Couples-Package.v1.json model with the page list as empty.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  title:
+                    type: string
+                  iconUrl:
+                    type: string
+                    format: uri
+                  pages:
+                    type: array
+                    items: {}
+              examples:
+                example-1:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    title: string
+                    iconUrl: 'http://example.com'
+                    pages:
+                      - null
+    parameters: []
+  '/couples/{couple-package-key}':
+    get:
+      summary: Couples by Couples Package Key
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                        title:
+                          type: string
+                        pageIconUrl:
+                          type: string
+                          format: uri
+                        contents:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                format: uuid
+                              title:
+                                type: string
+                              description:
+                                type: string
+                              contentType:
+                                type: string
+                              iconUrl:
+                                type: string
+                                format: uri
+                              isBookmarkable:
+                                type: boolean
+                                format: binary
+                              isDownloadable:
+                                type: boolean
+                                format: binary
+                              isShareable:
+                                format: binary
+                                type: boolean
+                              mediaUrl:
+                                type: string
+                                format: uri
+                        contentTypeList:
+                          type: array
+                          uniqueItems: true
+                          items:
+                            type: string
+      operationId: get-Couples-By-Couples-Package-Key
+    parameters:
+      - schema:
+          type: string
+        name: couple-package-key
+        in: path
+        required: true
 components:
   schemas: {}
