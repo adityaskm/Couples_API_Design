@@ -7,7 +7,7 @@ servers:
   - url: 'http://localhost:3000'
     description: Localhost
 paths:
-  /v1.0/collections/mobile?$bundleWith=couplepackages&$keys=caa9b2a5-bca2-4f66-af27-58967083ef30:
+  '/v1.0/collections/mobile?$bundleWith={bundleWith}&$keys={keys}$locale={locale}':
     get:
       summary: CouplePackages
       tags: []
@@ -49,8 +49,23 @@ paths:
                     iconUrl: 'http://example.com'
                     pages:
                       - null
-    parameters: []
-  '/couples/{couple-package-key}':
+    parameters:
+      - schema:
+          type: string
+        name: bundleWith
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: keys
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: locale
+        in: path
+        required: true
+  '/couples/{couple-package-key}?$locale={locale}':
     get:
       summary: Couples by Couples Package Key
       tags: []
@@ -114,6 +129,11 @@ paths:
       - schema:
           type: string
         name: couple-package-key
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: locale
         in: path
         required: true
 components:
