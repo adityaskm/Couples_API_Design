@@ -168,3 +168,4 @@ paths:
         description: key of a certain couple package. If given the response will only return data for the object identified by the key.
 components:
   schemas: {}
+  securitySchemes: {}
