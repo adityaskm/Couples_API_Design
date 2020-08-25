@@ -1,0 +1,27 @@
+{
+  "title": "couplepage",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "pageIconUrl": {
+      "type": "string"
+    },
+    "contentTypeList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "content": {
+      "type": "array",
+      "items": {
+        "$ref": "./couple.v1.json"
+      }
+    }
+  }
+}

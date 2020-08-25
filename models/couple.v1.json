@@ -1,0 +1,34 @@
+{
+  "title": "couple",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "iconUrl": {
+      "type": "string"
+    },
+    "isBookmarkable": {
+      "type": "boolean"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+    },
+    "isShareable": {
+      "type": "boolean"
+    },
+    "mediaUrl": {
+      "type": "string"
+    }
+  },
+  "description": "A single couple entity"
+}

@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "title": "couplepackage",
+  "x-examples": {
+    "Example Couple Package": {
+      "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+      "title": "Book 1",
+      "iconUrl": "http://example.com",
+      "pages": [
+        {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "title": "Intro",
+          "pageIconUrl": "http://example.com",
+          "contents": [
+            {
+              "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+              "title": "Document",
+              "description": "string",
+              "contentType": "document",
+              "iconUrl": "http://example.com",
+              "isBookmarkable": true,
+              "isDownloadable": true,
+              "isShareable": true,
+              "mediaUrl": "http://example.com"
+            }
+          ],
+          "contentTypeList": [
+            "document"
+          ]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "description": "This is the Base Model of a couplepackage",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "iconUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "couplepages": {
+      "type": "array",
+      "items": {
+        "$ref": "./couplepage.v1.json"
+      }
+    }
+  }
+}

@@ -62,7 +62,7 @@ paths:
         name: locale
         in: path
         required: true
-  '/couplepackages/{couple-package-key}?$locale=&$includeContent={includeContent}':
+  '/couplepackages/{couplepackageKey}?$locale=&$includeContent=':
     get:
       summary: Couples by Couples Package Key
       tags: []
@@ -163,14 +163,9 @@ paths:
     parameters:
       - schema:
           type: string
-        name: couple-package-key
+        name: couplepackageKey
         in: path
         description: key of a certain couple package. If given the response will only return data for the object identified by the key.
-      - schema:
-          type: string
-        name: includeContent
-        in: path
-        required: true
   '/couple/{coupleKey}/content':
     parameters:
       - schema:
@@ -183,6 +178,17 @@ paths:
       tags: []
       responses: {}
       operationId: get-couple-coupleKey-content
+  '/couplepages/{couplepage-key}':
+    get:
+      summary: test
+      tags: []
+      responses: {}
+      operationId: get-couplepages
+    parameters:
+      - schema:
+          type: string
+        name: couplepage-key
+        in: path
 components:
   schemas: {}
   securitySchemes: {}
