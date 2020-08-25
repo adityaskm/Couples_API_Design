@@ -46,23 +46,24 @@ paths:
                     iconUrl: 'http://example.com'
                     pages:
                       - null
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
     parameters:
       - schema:
           type: string
         name: bundleWith
         in: path
-        required: true
       - schema:
           type: string
         name: keys
         in: path
-        required: true
       - schema:
           type: string
         name: locale
         in: path
-        required: true
-  '/couplepackages/{couplepackageKey}?$locale=&$includeContent=':
+  '/v1.0/couplepackages/{couplepackageKey}?$locale=&$includeContent=':
     get:
       summary: Couples by Couples Package Key
       tags: []
@@ -166,28 +167,39 @@ paths:
         name: couplepackageKey
         in: path
         description: key of a certain couple package. If given the response will only return data for the object identified by the key.
-  '/couple/{coupleKey}/content':
+  '/v1.0/couple/{coupleKey}':
     parameters:
       - schema:
           type: string
         name: coupleKey
         in: path
-        required: true
     get:
       summary: Get Contents of a Couple via the CoupleKey
       tags: []
-      responses: {}
-      operationId: get-couple-coupleKey-content
-  '/couplepages/{couplepage-key}':
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      operationId: get-couple-coupleKey
+  '/v1.0/couplepages/{couplepageKey}':
     get:
       summary: test
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
       operationId: get-couplepages
     parameters:
       - schema:
           type: string
-        name: couplepage-key
+        name: couplepageKey
         in: path
 components:
   schemas: {}
