@@ -171,6 +171,18 @@ paths:
         name: includeContent
         in: path
         required: true
+  '/couple/{coupleKey}/content':
+    parameters:
+      - schema:
+          type: string
+        name: coupleKey
+        in: path
+        required: true
+    get:
+      summary: Get Contents of a Couple via the CoupleKey
+      tags: []
+      responses: {}
+      operationId: get-couple-coupleKey-content
 components:
   schemas: {}
   securitySchemes: {}
