@@ -171,7 +171,6 @@ paths:
           type: string
         name: includeContent
         in: path
-        required: true
   '/v1.0/couple/{coupleKey}':
     parameters:
       - schema:
