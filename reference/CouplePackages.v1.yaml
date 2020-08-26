@@ -188,7 +188,7 @@ paths:
         '401':
           description: Unauthorized
       operationId: get-couple-coupleKey
-  '/v1.0/couplepages/{couplepageKey}':
+  '/v1.0/couplepages/{couplePackageKey}':
     get:
       summary: test
       tags: []
@@ -203,8 +203,9 @@ paths:
     parameters:
       - schema:
           type: string
-        name: couplepageKey
+        name: couplePackageKey
         in: path
+        required: true
 components:
   schemas: {}
   securitySchemes: {}
