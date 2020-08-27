@@ -183,6 +183,39 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {
+                   "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "iconUrl": {
+      "type": "string"
+    },
+    "isBookmarkable": {
+      "type": "boolean"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+    },
+    "isShareable": {
+      "type": "boolean"
+    },
+    "mediaUrl": {
+      "type": "string"
+    }
+                }
         '400':
           description: Bad Request
         '401':
