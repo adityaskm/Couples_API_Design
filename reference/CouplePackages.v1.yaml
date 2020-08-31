@@ -13,7 +13,7 @@ servers:
   - url: 'https://cloud.actionlist.de/prod/couplecloud'
     description: Production
 paths:
-  '/v1.0/collections/mobile?$bundleWith={bundleWith}&$keys={keys}$locale={locale}':
+  '/v1/collections/mobile?$bundleWith={bundleWith}&$keys={keys}$locale={locale}':
     get:
       summary: CouplePackages
       tags: []
@@ -29,18 +29,17 @@ paths:
                 items:
                   type: object
                   properties:
-                   id:
-                    type: string
-                    format: uuid
-                   title:
-                    type: string
-                   iconUrl:
-                    type: string
-                    format: uri
-                   pages:
-                    type: array
-                    items: {}
-
+                    id:
+                      type: string
+                      format: uuid
+                    title:
+                      type: string
+                    iconUrl:
+                      type: string
+                      format: uri
+                    pages:
+                      type: array
+                      items: {}
         '400':
           description: Bad Request
         '401':
@@ -58,7 +57,7 @@ paths:
           type: string
         name: locale
         in: path
-  '/v1.0/couplepackages/{couplepackageKey}?$locale=&$includeContent={includeContent}':
+  '/v1/couplepackages/{couplepackageKey}?$locale=&$includeContent={includeContent}':
     get:
       summary: Couples by Couples Package Key
       tags: []
@@ -166,7 +165,7 @@ paths:
           type: string
         name: includeContent
         in: path
-  '/v1.0/couple/{coupleKey}':
+  '/v1/couple/{coupleKey}':
     parameters:
       - schema:
           type: string
